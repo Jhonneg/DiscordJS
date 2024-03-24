@@ -1,8 +1,9 @@
-const { Client } = require("discord.js");
-const client = new Client({});
-
-client.on("ready", () => {
-  console.log("Logged in!");
+const { Client, Events, GatewayIntentBits, REST } = require("discord.js");
+const { clientReadyHandler } = require(".event/ready");
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds],
 });
+const { token } = require("./config.json");
 
-client.login();
+client.on(Events.ClientReady, clientReadyHandler);
+client.login(token);
