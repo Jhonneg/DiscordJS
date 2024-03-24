@@ -1,5 +1,5 @@
 const { Client, Events, GatewayIntentBits, REST } = require("discord.js");
-const { clientReadyHandler } = require(".event/ready");
+const { clientReadyHandler } = require("./events/ready");
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
