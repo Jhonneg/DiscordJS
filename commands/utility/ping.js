@@ -8,7 +8,7 @@ async function execute(interaction) {
   await interaction.reply("Pong!");
 }
 
-module.execute = {
-  data,
+module.exports = {
+  data, 
   execute,
 };
