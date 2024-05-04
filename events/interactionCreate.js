@@ -1,4 +1,4 @@
-async function interactionCreateHandler(interaction) {
+export default async function interactionCreateHandler(interaction) {
   if (!interaction.isChatInputCommand()) {
     return;
   }
@@ -26,7 +26,3 @@ async function interactionCreateHandler(interaction) {
     }
   }
 }
-
-module.exports = {
-  interactionCreateHandler,
-};

@@ -1,12 +1,10 @@
-const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
-const { clientReadyHandler } = require("./events/ready");
-const { interactionCreateHandler } = require("./events/interactionCreate");
-const pingCommand = require("./commands/utility/ping");
+import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
+import clientReadyHandler from "./events/ready.js";
+import interactionCreateHandler from "./events/interactionCreate.js";
+import pingCommand from "./commands/utility/ping.js"
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
-
-const { token } = require("./config.json");
 
 client.commands = new Collection();
 
@@ -16,4 +14,4 @@ client.once(Events.ClientReady, clientReadyHandler);
 
 client.on(Events.InteractionCreate, interactionCreateHandler);
 
-client.login(token);
+client.login(process.env.DISCORD_TOKEN);
