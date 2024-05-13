@@ -1,4 +1,8 @@
-import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
+import {
+  SlashCommandBuilder,
+  EmbedBuilder,
+  AttachmentBuilder,
+} from "discord.js";
 import fetchForecast from "../../requests/forecast.js";
 
 const data = new SlashCommandBuilder()
@@ -43,6 +47,8 @@ async function execute(interaction) {
         text: "Powered by the weatherapi.com API",
       });
     for (const day of weatherData) {
+      // const conditionIcon = day.conditionIcon
+      const conditionText = day.conditionText;
       const temperatureMin = isMetric
         ? day.temperatureMinC
         : day.temperatureMaxC;
@@ -51,7 +57,7 @@ async function execute(interaction) {
         : day.temperatureMaxC;
       embed.addFields({
         name: day.date,
-        value: `⬇️Low:${temperatureMin}°, ⬆️ High ${temperatureMax}°`,
+        value: `⬇️ Low:${temperatureMin}°, ⬆️ High ${temperatureMax}°\n ${conditionText}`,
       });
     }
     await interaction.editReply({

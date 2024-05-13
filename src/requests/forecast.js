@@ -28,6 +28,9 @@ export default async function fetchForecast(location) {
             temperatureMinF: forecastDay.day.mintemp_f,
             temperatureMaxF: forecastDay.day.maxtemp_f,
 
+            conditionText: forecastDay.day.condition.text,
+            conditionIcon: forecastDay.day.condition.icon,
+
             sunriseTime: forecastDay.astro.sunrise,
             sunsetTime: forecastDay.astro.sunset,
             moonsetTime: forecastDay.astro.moonset,
