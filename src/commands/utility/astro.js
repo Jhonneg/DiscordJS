@@ -2,8 +2,8 @@ import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
 import fetchForecast from "../../requests/forecast.js";
 
 const data = new SlashCommandBuilder()
-  .setName("forecast")
-  .setDescription("Replies with the weather forecast")
+  .setName("astro")
+  .setDescription("Replies with the astronomial information for the day")
   .addStringOption((option) => {
     return option
       .setName("location")
@@ -11,47 +11,24 @@ const data = new SlashCommandBuilder()
         "Location can be a city, zip/postal code or a latitude and longitude"
       )
       .setRequired(true);
-  })
-  .addStringOption((option) => {
-    return option
-      .setName("units")
-      .setDescription("The unit system of the results: metric or imperial")
-      .setRequired(false)
-      .addChoices(
-        {
-          name: "Metric",
-          value: "metric system",
-        },
-
-        { name: "Imperial", value: "imperial system" }
-      );
   });
 
 async function execute(interaction) {
   await interaction.deferReply();
   const location = interaction.options.getString("location");
-  const units = interaction.options.getString("units") || "metric";
-  const isMetric = units === "metric";
   try {
     const { weatherData, locationName } = await fetchForecast(location);
     const embed = new EmbedBuilder()
       .setColor("#FFA500")
-      .setTitle(`Weather forecast for ${locationName}`)
-      .setDescription(`Using the ${units} system`)
+      .setTitle(`Astronomical forecast for ${locationName}`)
       .setTimestamp()
       .setFooter({
         text: "Powered by the weatherapi.com API",
       });
-    for (const days of weatherData) {
-      const temperatureMin = isMetric
-        ? days.temperatureMinC
-        : days.temperatureMaxC;
-      const temperatureMax = isMetric
-        ? days.temperatureMinC
-        : days.temperatureMaxC;
+    for (const day of weatherData) {
       embed.addFields({
-        name: days.date,
-        value: `⬇️Low:${temperatureMin}°, ⬆️ High ${temperatureMax}°`,
+        name: day.date,
+        value: `🌅 Sunrise: ${day.sunriseTime}\n 🌇 Sunset:${day.sunsetTime}\n 🌕 Moonrise:${day.moonriseTime}\n 🌒 Moonset:${day.moonsetTime}`,
       });
     }
     await interaction.editReply({

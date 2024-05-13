@@ -42,15 +42,15 @@ async function execute(interaction) {
       .setFooter({
         text: "Powered by the weatherapi.com API",
       });
-    for (const days of weatherData) {
+    for (const day of weatherData) {
       const temperatureMin = isMetric
-        ? days.temperatureMinC
-        : days.temperatureMaxC;
+        ? day.temperatureMinC
+        : day.temperatureMaxC;
       const temperatureMax = isMetric
-        ? days.temperatureMinC
-        : days.temperatureMaxC;
+        ? day.temperatureMinC
+        : day.temperatureMaxC;
       embed.addFields({
-        name: days.date,
+        name: day.date,
         value: `⬇️Low:${temperatureMin}°, ⬆️ High ${temperatureMax}°`,
       });
     }
