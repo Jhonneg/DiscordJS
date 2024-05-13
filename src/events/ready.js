@@ -7,7 +7,7 @@ export default async function clientReadyHandler(client) {
   console.log(`Ready! Logged in as ${client.user.tag}`);
 
   try {
-    console.log(`Started refreshing ${client.commands.length} commands`);
+    console.log(`Started refreshing ${client.commands.size} commands`);
 
     const data = await rest.put(
       Routes.applicationGuildCommands(
