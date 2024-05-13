@@ -22,10 +22,16 @@ export default async function fetchForecast(location) {
         (forecastDay) => {
           return {
             date: forecastDay.date,
+
             temperatureMinC: forecastDay.day.mintemp_c,
             temperatureMaxC: forecastDay.day.maxtemp_c,
             temperatureMinF: forecastDay.day.mintemp_f,
             temperatureMaxF: forecastDay.day.maxtemp_f,
+
+            sunriseTime: forecastDay.astro.sunrise,
+            sunsetTime: forecastDay.astro.sunset,
+            moonsetTime: forecastDay.astro.moonset,
+            moonriseTime: forecastDay.astro.moonrise,
           };
         }
       );
@@ -36,5 +42,6 @@ export default async function fetchForecast(location) {
     })
     .catch((error) => {
       console.error(error);
+      throw new Error(`Error fetching forecast for ${location}.`);
     });
 }

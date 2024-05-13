@@ -1,12 +1,10 @@
 import { REST, Routes } from "discord.js";
-import "dotenv/config"
+import "dotenv/config";
 import fetchForecast from "../requests/forecast.js";
 
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
-
 export default async function clientReadyHandler(client) {
   console.log(`Ready! Logged in as ${client.user.tag}`);
-  console.log(await fetchForecast("Cairo"));
 
   try {
     console.log(`Started refreshing ${client.commands.length} commands`);
