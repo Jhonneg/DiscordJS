@@ -1,11 +1,11 @@
 import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 import clientReadyHandler from "./events/ready.js";
 import interactionCreateHandler from "./events/interactionCreate.js";
-import pingCommand from "./commands/utility/ping.js"
+import pingCommand from "./commands/utility/ping.js";
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
-
+const port = process.env.PORT || 3000;
 client.commands = new Collection();
 
 client.commands.set(pingCommand.data.name, pingCommand);
