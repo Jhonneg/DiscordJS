@@ -13,3 +13,4 @@ This bot allows you to fetch weather and astronomical data.
 <video width="520" height="440" controls>
 <source src="./assets/Screencast from 05-13-2024 11_50_34 AM.mp4">
 </video>
+
