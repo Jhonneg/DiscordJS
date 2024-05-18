@@ -10,7 +10,4 @@ This bot allows you to fetch weather and astronomical data.
 
 <img src="./assets/Screenshot from 2024-05-13 10-03-25.png"/>
 
-<video width="520" height="440" controls>
-<source src="./assets/Screencast from 05-13-2024 11_50_34 AM.mp4">
-</video>
-
+<img src="https://raw.githubusercontent.com/Jhonneg/jhonneg/main/assets/Screencast%20from%2005-13-2024%2011_50_34%20AM.gif"/>
