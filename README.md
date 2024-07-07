@@ -1,6 +1,6 @@
 # DiscordJS
 
-Discord weather bot build with <a href="https://discordjs.guide/">DiscordJS</a>
+Discord weather bot build with Node and <a href="https://discordjs.guide/">DiscordJS</a>
 
 This bot allows you to fetch weather and astronomical data with the /forecast command.
 
