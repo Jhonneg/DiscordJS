@@ -1,7 +1,10 @@
 # DiscordJS
-
+  
+<div align=center>
+  
 # Tech stack
 [![Current tech stack](https://skillicons.dev/icons?i=nodejs,express)](https://skillicons.dev)
+</div>
 
 Discord weather bot build with Node and <a href="https://discordjs.guide/">DiscordJS</a>
 
